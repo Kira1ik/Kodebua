@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Kodebua – programmeringshjelp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topp">
+      <div class="wrap topprad">
+        <a class="logo" href="#hjem">
+          <svg
+            viewBox="0 0 100 100"
+            width="34"
+            height="34"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M38 10C24 10 24 22 24 32L24 40C24 48 18 50 10 50C18 50 24 52 24 60L24 68C24 78 24 90 38 90"
+              stroke="currentColor"
+              stroke-width="8"
+            />
+            <path
+              d="M62 10C76 10 76 22 76 32L76 40C76 48 82 50 90 50C82 50 76 52 76 60L76 68C76 78 76 90 62 90"
+              stroke="currentColor"
+              stroke-width="8"
+            />
+            <circle cx="43" cy="44" r="3.6" fill="#BA88AE" />
+            <circle cx="57" cy="44" r="3.6" fill="#BA88AE" />
+            <path d="M41 55Q50 64 59 55" stroke="#BA88AE" stroke-width="4.5" />
+          </svg>
+          Kodebua
+        </a>
+        <button id="menyKnapp" class="burger">☰</button>
+        <nav id="meny">
+          <a href="#hjem">Hjem</a>
+          <a href="#hjelpere">Hjelperne</a>
+          <a href="#slik">Slik fungerer det</a>
+          <a href="#priser">Priser</a>
+          <a href="#faq">Spørsmål</a>
+          <a href="#book" class="knapp liten">Book hjelp</a>
+        </nav>
+      </div>
+    </header>
+    <section id="hjem" class="hero wrap">
+      <div>
+        <h1>Fast i koden? <span>Få hjelp i dag.</span></h1>
+        <p class="ingress">
+          Kodebua er stedet for deg som står fast. Mange som lærer seg
+          programmering får ikke hjelp raskt nok, og forum kan være harde og
+          uoversiktlige. Her får du hjelp fra unge folk som har vært i samme
+          situasjon, til en pris du har råd til.
+        </p>
+
+        <form id="sokSkjema" class="sok">
+          <input
+            id="sokInput"
+            type="text"
+            aria-label="Beskriv problemet ditt"
+            placeholder="Beskriv problemet ditt, så svarer Kodebot"
+            autocomplete="off"
+          />
+          <button class="knapp" type="submit">Spør</button>
+        </form>
+        <p class="sokTips">Ikke skriv passord eller personlige koder her.</p>
+
+        <a href="#book" class="knapp">Book hjelp →</a>
+        <a href="#hjelpere" class="knapp omriss">Møt hjelperne</a>
+
+        <div class="avatarer">
+          <span class="a1">E</span><span class="a2">S</span
+          ><span class="a3">J</span><span class="a4">M</span>
+          <p>Emil, Sara, Jonas og Maja er klare til å hjelpe</p>
+        </div>
+      </div>
+      <div class="fotorute">
+        <img src="bilder/hero.jpg" alt="Kode på en laptop" />
+      </div>
+    </section>
+    <section class="wrap seksjon">
+      <h2>Hva vil du gjøre i dag?</h2>
+      <div class="valg">
+        <a href="#book" class="v1">
+          <svg viewBox="0 0 100 100" class="ikon">
+            <path d="M35 30L15 50L35 70M65 30L85 50L65 70M56 24L44 76" />
+          </svg>
+          <h3>Få hjelp med kode</h3>
+          <p>Står du fast på en feil? Book en økt og få hjelp steg for steg.</p>
+          <svg viewBox="0 0 100 100" class="pil">
+            <path d="M10 50H86M60 24L88 50L60 76" />
+          </svg>
+        </a>
+        <a href="#hjelpere" class="v2">
+          <svg viewBox="0 0 100 100" class="ikon">
+            <circle cx="40" cy="36" r="14" />
+            <path d="M14 82C14 64 26 56 40 56C54 56 66 64 66 82" />
+            <circle cx="72" cy="40" r="10" />
+            <path d="M72 58C82 58 88 66 88 80" />
+          </svg>
+          <h3>Møt hjelperne</h3>
+          <p>Finn noen som er god på akkurat det du sitter fast i.</p>
+          <svg viewBox="0 0 100 100" class="pil">
+            <path d="M10 50H86M60 24L88 50L60 76" />
+          </svg>
+        </a>
+        <a href="#priser" class="v3">
+          <svg viewBox="0 0 100 100" class="ikon">
+            <path d="M14 50L50 14H82V46L46 82Z" />
+            <circle cx="66" cy="32" r="5" />
+          </svg>
+          <h3>Se priser</h3>
+          <p>Faste priser fra 99 kr. Ingen skjulte avgifter.</p>
+          <svg viewBox="0 0 100 100" class="pil">
+            <path d="M10 50H86M60 24L88 50L60 76" />
+          </svg>
+        </a>
+        <a href="#faq" class="v4">
+          <svg viewBox="0 0 100 100" class="ikon">
+            <circle cx="50" cy="50" r="34" />
+            <path d="M40 40C40 30 60 30 60 42C60 52 50 52 50 62M50 72V74" />
+          </svg>
+          <h3>Har du spørsmål?</h3>
+          <p>Se svar på det vi oftest får spørsmål om.</p>
+          <svg viewBox="0 0 100 100" class="pil">
+            <path d="M10 50H86M60 24L88 50L60 76" />
+          </svg>
+        </a>
+      </div>
+      <h2>Møt hjelperne</h2>
+      <p class="under">
+        Alle er unge og erfarne, og vet hvordan det er å stå fast. Velg den som
+        passer best.
+      </p>
+      <div class="filter">
+        <button data-sprak="alle" class="valgt">Alle</button>
+        <button data-sprak="python">Python</button>
+        <button data-sprak="html">HTML/CSS</button>
+        <button data-sprak="javascript">JavaScript</button>
+        <button data-sprak="java">Java</button>
+      </div>
+      <div class="hjelpere">
+        <article class="hjelper" data-sprak="python">
+          <div class="bilde a1">E</div>
+          <h3>Emil, 19</h3>
+          <p class="rolle">Python og feilsøking</p>
+          <p>Elsker å lete etter feil og forklarer rolig, steg for steg.</p>
+          <p class="tags"><span>Python</span><span>Feilsøking</span></p>
+          <button class="knapp liten" data-navn="Emil">Book Emil</button>
+        </article>
+        <article class="hjelper" data-sprak="html css">
+          <div class="bilde a2">S</div>
+          <h3>Sara, 21</h3>
+          <p class="rolle">Nettsider og design</p>
+          <p>
+            Liker pene nettsider og hjelper deg å få siden din til å se bra ut.
+          </p>
+          <p class="tags">
+            <span>HTML</span><span>CSS</span><span>Figma</span>
+          </p>
+          <button class="knapp liten" data-navn="Sara">Book Sara</button>
+        </article>
+        <article class="hjelper" data-sprak="javascript">
+          <div class="bilde a3">J</div>
+          <h3>Jonas, 18</h3>
+          <p class="rolle">JavaScript og spill</p>
+          <p>
+            Har laget flere små spill og vet hvordan du får knapper til å funke.
+          </p>
+          <p class="tags"><span>JavaScript</span><span>Spill</span></p>
+          <button class="knapp liten" data-navn="Jonas">Book Jonas</button>
+        </article>
+        <article class="hjelper" data-sprak="java">
+          <div class="bilde a4">M</div>
+          <h3>Maja, 22</h3>
+          <p class="rolle">Java og oppgaver</p>
+          <p>
+            Studerer informatikk og er god på å forstå oppgaver du står fast på.
+          </p>
+          <p class="tags"><span>Java</span><span>Algoritmer</span></p>
+          <button class="knapp liten" data-navn="Maja">Book Maja</button>
+        </article>
+      </div>
+    </section>
+    <section class="wrap seksjon hjelpeblokk" id="hjelp">
+      <div class="stor">
+        <div>
+          <h2>Trenger du hjelp med noe konkret?</h2>
+          <p>
+            Still et spørsmål til Kodebot, så får du svar med en gang. Står du
+            helt fast, kan du booke en av hjelperne.
+          </p>
+          <button id="apneChat" class="knapp omriss">Chat med Kodebot →</button>
+        </div>
+        <div class="forhand">
+          <p><b>Mia</b> Hva betyr «undefined» i JavaScript?</p>
+          <p>
+            <b>Jonas</b> Variabelen har ikke fått noen verdi ennå. Prøv
+            console.log() for å se.
+          </p>
+          <p><b>Mia</b> Takk, det funket!</p>
+        </div>
+      </div>
+      <div class="tipskort">
+        <h3>Dagens tips</h3>
+        <pre><code id="tipsKode">// En enkel funksjon som sier hei
+function sayHello(name) {
+  return 'Hei, ' + name + '!';
+}
+console.log(sayHello('Utvikler'));</code></pre>
+        <div class="tipsbunn">
+          <p>Små steg. Stor fremgang.</p>
+          <button id="nyttTips" class="knapp liten">Nytt tips</button>
+        </div>
+      </div>
+    </section>
+    <section id="slik" class="wrap seksjon">
+      <h2>Første gang? Slik fungerer det</h2>
+      <div class="trinn">
+        <div>
+          <b>1</b>
+          <h3>Velg en økt</h3>
+          <p>Feilsøking, kodegjennomgang eller hjelp med en oppgave.</p>
+        </div>
+        <div>
+          <b>2</b>
+          <h3>Velg en hjelper</h3>
+          <p>Finn noen som er god på akkurat det du sitter fast i.</p>
+        </div>
+        <div>
+          <b>3</b>
+          <h3>Få hjelp</h3>
+          <p>Dere tar det rolig, steg for steg, til feilen er borte.</p>
+        </div>
+      </div>
+    </section>
+    <section id="priser" class="wrap seksjon">
+      <h2>Priser</h2>
+      <p class="under">Faste priser per økt på 30 minutter.</p>
+      <div class="priser">
+        <div>
+          <h3>Feilsøking</h3>
+          <p class="pris">99 kr</p>
+          <p>Du har en feilmelding du ikke forstår.</p>
+        </div>
+        <div class="populaer">
+          <span class="badge">Mest valgt</span>
+          <h3>Kodegjennomgang</h3>
+          <p class="pris">129 kr</p>
+          <p>Få tilbakemelding på koden din.</p>
+        </div>
+        <div>
+          <h3>Hjelp med oppgave</h3>
+          <p class="pris">149 kr</p>
+          <p>Kom i gang med skoleoppgaven.</p>
+        </div>
+      </div>
+    </section>
+    <section id="book" class="mork">
+      <div class="indre">
+        <h2>Book hjelp</h2>
+        <p class="under">Dette er en prototype, så ingenting blir sendt.</p>
+        <div class="bookboks">
+          <form id="skjema">
+            <label>Navn <input id="navn" type="text" /></label>
+            <label>E-post <input id="epost" type="text" /></label>
+            <label
+              >Hjelper
+              <select id="hjelper">
+                <option>Hvem som helst</option>
+                <option>Emil</option>
+                <option>Sara</option>
+                <option>Jonas</option>
+                <option>Maja</option>
+              </select>
+            </label>
+            <label
+              >Økt
+              <select id="okt">
+                <option value="99">Feilsøking – 99 kr</option>
+                <option value="129">Kodegjennomgang – 129 kr</option>
+                <option value="149">Hjelp med oppgave – 149 kr</option>
+              </select>
+            </label>
+            <label>Dato <input id="dato" type="date" /></label>
+            <p id="feil" class="feil"></p>
+            <button class="knapp" type="submit">Send forespørsel</button>
+          </form>
+          <div class="sammendrag">
+            <h3>Din booking</h3>
+            <p class="linje" id="sumHjelper"></p>
+            <p class="linje" id="sumOkt"></p>
+            <p class="linje" id="sumDato"></p>
+            <p id="sumPris" class="storpris"></p>
+          </div>
+        </div>
+        <div id="takk" class="takk" hidden></div>
+      </div>
+    </section>
+    <section id="guider" class="wrap seksjon">
+      <h2>Tips og guider</h2>
+      <p class="under">
+        Små tips fra hjelperne som gjør det lettere å komme videre.
+      </p>
+      <div class="artikler">
+        <article>
+          <img src="bilder/program4.jpg" alt="" />
+          <div>
+            <span class="tag">Tips</span>
+            <h3>5 enkle grep for å finne feil raskere</h3>
+            <p>12. okt 2026 · 5 min</p>
+          </div>
+        </article>
+        <article>
+          <img src="bilder/program1.jpg" alt="" />
+          <div>
+            <span class="tag">Guide</span>
+            <h3>Slik leser du en feilmelding i Python</h3>
+            <p>10. okt 2026 · 7 min</p>
+          </div>
+        </article>
+        <article>
+          <img src="bilder/program2.jpg" alt="" />
+          <div>
+            <span class="tag">Tutorial</span>
+            <h3>Lag din første knapp med JavaScript</h3>
+            <p>8. okt 2026 · 8 min</p>
+          </div>
+        </article>
+        <article>
+          <img src="bilder/program3.jpg" alt="" />
+          <div>
+            <span class="tag">Inspirasjon</span>
+            <h3>Slik holder du motivasjonen når koden ikke virker</h3>
+            <p>5. okt 2026 · 6 min</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="faq" class="wrap seksjon">
+      <h2>Spørsmål og svar</h2>
+      <div class="faq">
+        <div>
+          <button>Er det trygt?</button>
+          <p hidden>
+            Ja. Alle følger faste regler, og du kan avslutte når du vil.
+          </p>
+        </div>
+        <div>
+          <button>Må jeg kunne mye fra før?</button>
+          <p hidden>
+            Nei, du kan være helt nybegynner. Ingen spørsmål er for enkle.
+          </p>
+        </div>
+        <div>
+          <button>Hvorfor er det så billig?</button>
+          <p hidden>
+            Hjelperne er unge, og vi vil at alle studenter skal ha råd til
+            hjelp.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="wrap seksjon">
+      <div class="cta">
+        <svg viewBox="0 0 100 100" class="ctaikon">
+          <path d="M88 14L12 44L40 54L50 84ZM40 54L88 14" />
+        </svg>
+        <div>
+          <h2>Klar for å ta neste steg?</h2>
+          <p>
+            Book en økt og få hjelp av noen som forstår hvordan det er å stå
+            fast.
+          </p>
+          <a href="#book" class="knapp lys">Book hjelp →</a>
+        </div>
+        <p class="notat2">Små steg.<br />Stor fremgang.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap fot">
+        <div>
+          <b>Kodebua</b>
+          <p>Fast i koden? Få hjelp i dag.</p>
+        </div>
+        <div class="fotlenker">
+          <a href="#hjem">Hjem</a><a href="#hjelpere">Hjelperne</a
+          ><a href="#slik">Slik fungerer det</a><a href="#priser">Priser</a
+          ><a href="#book">Book hjelp</a>
+        </div>
+      </div>
+      <p class="wrap skole">© 2026 Kodebua · Skoleprosjekt</p>
+    </footer>
+    <button id="chatKnapp" class="chatKnapp" aria-label="Åpne chat">
+      <svg
+        viewBox="0 0 100 100"
+        width="26"
+        height="26"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20 22H80A8 8 0 0 1 88 30V58A8 8 0 0 1 80 66H48L30 82V66H20A8 8 0 0 1 12 58V30A8 8 0 0 1 20 22Z"
+        />
+      </svg>
+      Chat med Kodebot
+    </button>
+    <div id="chatVindu" class="chatVindu" hidden>
+      <div class="chatTopp">
+        <div class="chatAvatar">
+          <svg
+            viewBox="0 0 100 100"
+            width="26"
+            height="26"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M38 10C24 10 24 22 24 32L24 40C24 48 18 50 10 50C18 50 24 52 24 60L24 68C24 78 24 90 38 90"
+              stroke="#482A41"
+              stroke-width="9"
+            />
+            <path
+              d="M62 10C76 10 76 22 76 32L76 40C76 48 82 50 90 50C82 50 76 52 76 60L76 68C76 78 76 90 62 90"
+              stroke="#482A41"
+              stroke-width="9"
+            />
+            <circle cx="43" cy="44" r="4" fill="#BA88AE" />
+            <circle cx="57" cy="44" r="4" fill="#BA88AE" />
+            <path d="M41 55Q50 64 59 55" stroke="#BA88AE" stroke-width="5" />
+          </svg>
+        </div>
+        <div class="chatNavn">
+          <b>Kodebot</b><span><i></i> Online</span>
+        </div>
+        <button id="chatLukk" aria-label="Lukk chat">✕</button>
+      </div>
+      <div id="chatMeldinger" class="chatMeldinger"></div>
+      <div class="chatForslag">
+        <button>Priser</button>
+        <button>Hvordan booker jeg?</button>
+        <button>Hvem er hjelperne?</button>
+        <button>Er det trygt?</button>
+      </div>
+      <form id="chatSkjema" class="chatSkjema">
+        <input
+          id="chatInput"
+          type="text"
+          placeholder="Skriv et spørsmål …"
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Send">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
