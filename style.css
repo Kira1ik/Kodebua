@@ -73,7 +73,6 @@ img {
   margin-bottom: 24px;
 }
 
-/* gjør at innholdet i rutenettene kan krympe på små skjermer */
 .hero > *,
 .hjelpeblokk > *,
 .bookboks > *,
@@ -599,7 +598,6 @@ pre {
   gap: 20px;
 }
 
-/* denne hadde en skråstrek foran (\#skjema), så den virket ikke */
 #skjema {
   background: var(--puce);
   border: 1px solid var(--mount);
@@ -780,7 +778,6 @@ select:focus {
   transform: rotate(-6deg);
 }
 
-/* bunnen */
 footer {
   margin-top: 80px;
   padding: 40px 0 26px;
@@ -824,7 +821,6 @@ footer {
   color: var(--silver);
 }
 
-/* chatboten */
 .chatKnapp {
   position: fixed;
   right: 20px;
@@ -1040,7 +1036,6 @@ footer {
   }
 }
 
-/* ---------- nettbrett ---------- */
 @media (max-width: 1000px) {
   .valg,
   .hjelpere,
@@ -1052,7 +1047,6 @@ footer {
   }
 }
 
-/* ---------- stor mobil og liten nettbrett ---------- */
 @media (max-width: 820px) {
   .seksjon {
     padding-top: 56px;
@@ -1150,7 +1144,6 @@ footer {
   }
 }
 
-/* ---------- mobil ---------- */
 @media (max-width: 560px) {
   .valg,
   .hjelpere,
@@ -1198,7 +1191,6 @@ footer {
     flex-wrap: wrap;
   }
 
-  /* chatknappen blir rund så den ikke dekker innhold */
   .chatKnapp {
     font-size: 0;
     gap: 0;
@@ -1211,7 +1203,6 @@ footer {
     height: 28px;
   }
 
-  /* chatvinduet fyller bredden på mobil */
   .chatVindu {
     left: 12px;
     right: 12px;

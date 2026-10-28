@@ -1,16 +1,12 @@
-// ==========================================
-// ВСТАВЬ СВОЙ API-КЛЮЧ НИЖЕ В КАВЫЧКИ:
-const OPENAI_API_KEY = "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";
-// ==========================================
+const OPENAI_API_KEY =
+  "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";
 
-// navn paa øktene
 var okter = {
   99: "Feilsøking",
   129: "Kodegjennomgang",
   149: "Hjelp med oppgave",
 };
 
-// meny paa mobil
 var menyKnapp = document.getElementById("menyKnapp");
 var meny = document.getElementById("meny");
 
@@ -23,7 +19,6 @@ if (menyKnapp && meny) {
   };
 }
 
-// filter på hjelperne
 var filterKnapper = document.querySelectorAll(".filter button");
 var hjelpere = document.querySelectorAll(".hjelper");
 
@@ -41,7 +36,6 @@ for (var i = 0; i < filterKnapper.length; i++) {
   };
 }
 
-// dagens tips
 var tipsListe = [
   "// En enkel funksjon som sier hei\nfunction sayHello(name) {\n  return 'Hei, ' + name + '!';\n}\nconsole.log(sayHello('Utvikler'));",
   "# Skriv ut tallene fra 1 til 3\nfor tall in range(1, 4):\n    print(tall)",
@@ -58,7 +52,6 @@ if (nyttTips && tipsKode) {
   };
 }
 
-// booking
 var skjema = document.getElementById("skjema");
 var hjelperValg = document.getElementById("hjelper");
 var oktValg = document.getElementById("okt");
@@ -136,7 +129,6 @@ if (skjema && hjelperValg && oktValg && dato) {
   };
 }
 
-// spørsmål og svar
 var sporsmal = document.querySelectorAll(".faq button");
 for (var s = 0; s < sporsmal.length; s++) {
   sporsmal[s].onclick = function () {
@@ -145,7 +137,6 @@ for (var s = 0; s < sporsmal.length; s++) {
   };
 }
 
-// chatbot
 var chatKnapp = document.getElementById("chatKnapp");
 var chatVindu = document.getElementById("chatVindu");
 var chatMeldinger = document.getElementById("chatMeldinger");
@@ -199,9 +190,6 @@ if (chatLukk) {
   };
 }
 
-// ==========================================
-// ОБНОВЛЕННАЯ ФУНКЦИЯ ЗАПРОСА К OPENAI
-// ==========================================
 async function spor(tekst) {
   leggTil(tekst, "meg");
   if (!chatMeldinger) return;
@@ -266,7 +254,6 @@ for (var f = 0; f < forslag.length; f++) {
   };
 }
 
-// søkefeltet på forsiden sender spørsmålet til chatboten
 var sokInput = document.getElementById("sokInput");
 var sokSkjema = document.getElementById("sokSkjema");
 
