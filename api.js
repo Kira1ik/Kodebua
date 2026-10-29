@@ -1,8 +1,6 @@
-// api.js - bare API-ting her. Ikke noe HTML-tull.
 
 var OPENAI_API_KEY = "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";
 
-// Alt boten vet om Kodebua. Skriv fakta her, sa svarer den riktig.
 var SIDE_INFO = [
   "Du jobber for Kodebua, en norsk nettside der unge folk hjelper andre som star fast i programmering.",
   "Siden er et skoleprosjekt og en prototype. Ingenting blir faktisk sendt eller betalt enna.",
@@ -60,7 +58,6 @@ var SYSTEM_PROMPT =
   "- Aldri be om passord eller BankID.\n" +
   "- Hvis brukeren spor om noe utenfor programmering eller Kodebua, svar kort at du helst hjelper med kode og Kodebua.";
 
-// Fjerner markdown sa boten ser ut som vanlig tekst
 function rensSvar(tekst) {
   if (!tekst) return "";
   var t = tekst;
@@ -75,7 +72,6 @@ function rensSvar(tekst) {
   return t.trim();
 }
 
-// Selve kallet til OpenAI
 async function sporBot(tekst) {
   var svar = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",

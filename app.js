@@ -1,3 +1,5 @@
+
+
 var menyKnapp = document.getElementById("menyKnapp");
 var meny = document.getElementById("meny");
 
@@ -76,14 +78,17 @@ if (skjema && hjelperValg && oktValg && dato) {
   dato.onchange = oppdater;
   oppdater();
 
-  var bookKnapper = document.querySelectorAll("[data-navn]");
-  for (var b = 0; b < bookKnapper.length; b++) {
-    bookKnapper[b].onclick = function () {
-      hjelperValg.value = this.dataset.navn;
-      oppdater();
-      var book = document.getElementById("book");
-      if (book) book.scrollIntoView({ behavior: "smooth" });
-    };
+  // Hvis vi kom fra "Book Emil"-knappen pa forsiden, velg hjelperen automatisk
+  var params = new URLSearchParams(window.location.search);
+  var hjelperFraUrl = params.get("hjelper");
+  if (hjelperFraUrl) {
+    for (var o = 0; o < hjelperValg.options.length; o++) {
+      if (hjelperValg.options[o].value === hjelperFraUrl) {
+        hjelperValg.value = hjelperFraUrl;
+        oppdater();
+        break;
+      }
+    }
   }
 
   skjema.onsubmit = function (e) {
@@ -109,13 +114,17 @@ if (skjema && hjelperValg && oktValg && dato) {
 
     feil.textContent = "";
     var takk = document.getElementById("takk");
+    var hjelperNavn =
+      hjelperValg.value === "Hvem som helst"
+        ? "en av hjelperne"
+        : hjelperValg.value.toLowerCase();
     takk.textContent =
       "Takk, " +
       navn +
       "! Du har booket " +
       (okter[oktValg.value] || "en okt") +
       " med " +
-      hjelperValg.value.toLowerCase() +
+      hjelperNavn +
       " " +
       dato.value +
       ". Dette er bare en prototype.";
@@ -180,6 +189,7 @@ function byttChat() {
 }
 
 if (chatKnapp) chatKnapp.onclick = byttChat;
+
 var apneChat = document.getElementById("apneChat");
 if (apneChat) {
   apneChat.onclick = function () {
@@ -187,6 +197,7 @@ if (apneChat) {
     if (chatInput) chatInput.focus();
   };
 }
+
 if (chatLukk) {
   chatLukk.onclick = function () {
     if (chatVindu) chatVindu.hidden = true;
@@ -222,47 +233,15 @@ if (chatSkjema) {
   };
 }
 
-var forslagListe = [
-  "Hvordan lager jeg en knapp i HTML?",
-  "Hva er forskjellen pa var og let?",
-  "Hvordan far jeg en nettside pa internett?",
-  "Hva er en API?",
-  "Hvordan loser jeg en feilmelding i Python?",
-  "Hva er Git og GitHub?",
-  "Hvordan far jeg en div midt pa siden?",
-  "Hva er forskjellen pa HTML og CSS?",
-  "Hvordan skriver jeg en for-lokke i JavaScript?",
-  "Hva er en funksjon?",
-  "Hva betyr det at noe er asynkront?",
-  "Hvordan lager jeg en skjema i HTML?",
-];
-
-var forslagBeholder = document.querySelector(".chatForslag");
-if (forslagBeholder) {
-  if (forslagBeholder.children.length === 0) {
-    for (var f = 0; f < forslagListe.length; f++) {
-      var knapp = document.createElement("button");
-      knapp.type = "button";
-      knapp.textContent = forslagListe[f];
-      forslagBeholder.appendChild(knapp);
-    }
-  }
-}
-
 var forslag = document.querySelectorAll(".chatForslag button");
-for (var f2 = 0; f2 < forslag.length; f2++) {
-  forslag[f2].onclick = function () {
+for (var f = 0; f < forslag.length; f++) {
+  forslag[f].onclick = function () {
     spor(this.textContent.trim());
   };
 }
 
 var sokInput = document.getElementById("sokInput");
 var sokSkjema = document.getElementById("sokSkjema");
-
-function aapneChatMedSporsmal(sporsmal) {
-  if (chatVindu && chatVindu.hidden) byttChat();
-  spor(sporsmal);
-}
 
 if (sokSkjema && sokInput) {
   sokSkjema.onsubmit = function (e) {
@@ -273,6 +252,30 @@ if (sokSkjema && sokInput) {
       return;
     }
     sokInput.value = "";
-    aapneChatMedSporsmal(tekst);
+    if (chatVindu && chatVindu.hidden) byttChat();
+    spor(tekst);
+  };
+}
+
+var chatTopp = document.querySelector(".chatTopp");
+
+if (chatTopp && chatLukk && chatVindu) {
+  var utvidKnapp = document.createElement("button");
+  utvidKnapp.id = "chatUtvid";
+  utvidKnapp.type = "button";
+  utvidKnapp.title = "Utvid chat";
+
+  utvidKnapp.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
+
+  chatLukk.parentNode.insertBefore(utvidKnapp, chatLukk);
+
+  utvidKnapp.onclick = function () {
+    if (chatVindu.classList.contains("utvidet")) {
+      chatVindu.classList.remove("utvidet");
+      utvidKnapp.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
+    } else {
+      chatVindu.classList.add("utvidet");
+      utvidKnapp.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>';
+    }
   };
 }

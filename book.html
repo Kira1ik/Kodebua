@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Book hjelp – Kodebua</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topp">
+      <div class="wrap topprad">
+        <a class="logo" href="index.html">
+          <svg
+            viewBox="0 0 100 100"
+            width="34"
+            height="34"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M38 10C24 10 24 22 24 32L24 40C24 48 18 50 10 50C18 50 24 52 24 60L24 68C24 78 24 90 38 90"
+              stroke="currentColor"
+              stroke-width="8"
+            />
+            <path
+              d="M62 10C76 10 76 22 76 32L76 40C76 48 82 50 90 50C82 50 76 52 76 60L76 68C76 78 76 90 62 90"
+              stroke="currentColor"
+              stroke-width="8"
+            />
+            <circle cx="43" cy="44" r="3.6" fill="#BA88AE" />
+            <circle cx="57" cy="44" r="3.6" fill="#BA88AE" />
+            <path d="M41 55Q50 64 59 55" stroke="#BA88AE" stroke-width="4.5" />
+          </svg>
+          Kodebua
+        </a>
+        <button id="menyKnapp" class="burger">☰</button>
+        <nav id="meny">
+          <a href="index.html">Hjem</a>
+          <a href="index.html#hjelpere">Hjelperne</a>
+          <a href="index.html#priser">Priser</a>
+          <a href="index.html#faq">Spørsmål</a>
+          <a href="#book" class="knapp liten">Book hjelp</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero kort wrap">
+      <div>
+        <h1>Book hjelp <span>på 30 sekunder</span></h1>
+        <p class="ingress">
+          Velg hjelper, økt og dato. Du får bekreftelse med en gang. Dette er en
+          prototype, så ingenting blir faktisk sendt.
+        </p>
+      </div>
+    </section>
+
+    <section id="slik" class="wrap seksjon">
+      <h2>Slik fungerer det</h2>
+      <div class="trinn">
+        <div class="reveal">
+          <b>1</b>
+          <h3>Velg en økt</h3>
+          <p>Feilsøking, kodegjennomgang eller hjelp med en oppgave.</p>
+        </div>
+        <div class="reveal">
+          <b>2</b>
+          <h3>Velg en hjelper</h3>
+          <p>Finn noen som er god på akkurat det du sitter fast i.</p>
+        </div>
+        <div class="reveal">
+          <b>3</b>
+          <h3>Få hjelp</h3>
+          <p>Dere tar det rolig, steg for steg, til feilen er borte.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="book" class="mork">
+      <div class="indre">
+        <h2>Book hjelp</h2>
+        <p class="under">Dette er en prototype, så ingenting blir sendt.</p>
+        <div class="bookboks">
+          <form id="skjema">
+            <label>Navn <input id="navn" type="text" /></label>
+            <label>E-post <input id="epost" type="text" /></label>
+            <label
+              >Hjelper
+              <select id="hjelper">
+                <option>Hvem som helst</option>
+                <option>Emil</option>
+                <option>Sara</option>
+                <option>Jonas</option>
+                <option>Maja</option>
+              </select>
+            </label>
+            <label
+              >Økt
+              <select id="okt">
+                <option value="99">Feilsøking – 99 kr</option>
+                <option value="129">Kodegjennomgang – 129 kr</option>
+                <option value="149">Hjelp med oppgave – 149 kr</option>
+              </select>
+            </label>
+            <label>Dato <input id="dato" type="date" /></label>
+            <p id="feil" class="feil"></p>
+            <button class="knapp" type="submit">Send forespørsel</button>
+          </form>
+          <div class="sammendrag">
+            <h3>Din booking</h3>
+            <p class="linje" id="sumHjelper"></p>
+            <p class="linje" id="sumOkt"></p>
+            <p class="linje" id="sumDato"></p>
+            <p id="sumPris" class="storpris"></p>
+          </div>
+        </div>
+        <div id="takk" class="takk" hidden></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap fot">
+        <div>
+          <b>Kodebua</b>
+          <p>Fast i koden? Få hjelp i dag.</p>
+        </div>
+        <div class="fotlenker">
+          <a href="index.html">Hjem</a>
+          <a href="index.html#hjelpere">Hjelperne</a>
+          <a href="book.html">Book hjelp</a>
+        </div>
+      </div>
+      <p class="wrap skole">© 2026 Kodebua · Skoleprosjekt</p>
+    </footer>
+
+    <button id="chatKnapp" class="chatKnapp" aria-label="Åpne chat">
+      <svg
+        viewBox="0 0 100 100"
+        width="26"
+        height="26"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20 22H80A8 8 0 0 1 88 30V58A8 8 0 0 1 80 66H48L30 82V66H20A8 8 0 0 1 12 58V30A8 8 0 0 1 20 22Z"
+        />
+      </svg>
+      Chat med Kodebot
+    </button>
+
+    <div id="chatVindu" class="chatVindu" hidden>
+      <div class="chatTopp">
+        <div class="chatAvatar">
+          <svg
+            viewBox="0 0 100 100"
+            width="26"
+            height="26"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M38 10C24 10 24 22 24 32L24 40C24 48 18 50 10 50C18 50 24 52 24 60L24 68C24 78 24 90 38 90"
+              stroke="#482A41"
+              stroke-width="9"
+            />
+            <path
+              d="M62 10C76 10 76 22 76 32L76 40C76 48 82 50 90 50C82 50 76 52 76 60L76 68C76 78 76 90 62 90"
+              stroke="#482A41"
+              stroke-width="9"
+            />
+            <circle cx="43" cy="44" r="4" fill="#BA88AE" />
+            <circle cx="57" cy="44" r="4" fill="#BA88AE" />
+            <path d="M41 55Q50 64 59 55" stroke="#BA88AE" stroke-width="5" />
+          </svg>
+        </div>
+        <div class="chatNavn">
+          <b>Kodebot</b><span><i></i> Online</span>
+        </div>
+        <button id="chatLukk" aria-label="Lukk chat">✕</button>
+      </div>
+      <div id="chatMeldinger" class="chatMeldinger"></div>
+      <div class="chatForslag">
+        <button>Priser</button>
+        <button>Hvordan booker jeg?</button>
+        <button>Hvem er hjelperne?</button>
+        <button>Er det trygt?</button>
+        <button>Hvordan lager jeg en knapp?</button>
+        <button>Hva er JavaScript?</button>
+        <button>Python feil</button>
+        <button>HTML og CSS</button>
+      </div>
+      <form id="chatSkjema" class="chatSkjema">
+        <input
+          id="chatInput"
+          type="text"
+          placeholder="Skriv et spørsmål …"
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Send">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

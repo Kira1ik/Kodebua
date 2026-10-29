@@ -7,6 +7,17 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <title>Kodebua – programmeringshjelp</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
@@ -16,7 +27,7 @@
   <body>
     <header class="topp">
       <div class="wrap topprad">
-        <a class="logo" href="#hjem">
+        <a class="logo" href="index.html">
           <svg
             viewBox="0 0 100 100"
             width="34"
@@ -43,15 +54,15 @@
         </a>
         <button id="menyKnapp" class="burger">☰</button>
         <nav id="meny">
-          <a href="#hjem">Hjem</a>
+          <a href="index.html">Hjem</a>
           <a href="#hjelpere">Hjelperne</a>
-          <a href="#slik">Slik fungerer det</a>
           <a href="#priser">Priser</a>
           <a href="#faq">Spørsmål</a>
-          <a href="#book" class="knapp liten">Book hjelp</a>
+          <a href="book.html" class="knapp liten">Book hjelp</a>
         </nav>
       </div>
     </header>
+
     <section id="hjem" class="hero wrap">
       <div>
         <h1>Fast i koden? <span>Få hjelp i dag.</span></h1>
@@ -74,7 +85,7 @@
         </form>
         <p class="sokTips">Ikke skriv passord eller personlige koder her.</p>
 
-        <a href="#book" class="knapp">Book hjelp →</a>
+        <a href="book.html" class="knapp">Book hjelp →</a>
         <a href="#hjelpere" class="knapp omriss">Møt hjelperne</a>
 
         <div class="avatarer">
@@ -87,10 +98,11 @@
         <img src="bilder/hero.jpg" alt="Kode på en laptop" />
       </div>
     </section>
+
     <section class="wrap seksjon">
       <h2>Hva vil du gjøre i dag?</h2>
       <div class="valg">
-        <a href="#book" class="v1">
+        <a href="book.html" class="v1 reveal">
           <svg viewBox="0 0 100 100" class="ikon">
             <path d="M35 30L15 50L35 70M65 30L85 50L65 70M56 24L44 76" />
           </svg>
@@ -100,7 +112,7 @@
             <path d="M10 50H86M60 24L88 50L60 76" />
           </svg>
         </a>
-        <a href="#hjelpere" class="v2">
+        <a href="#hjelpere" class="v2 reveal">
           <svg viewBox="0 0 100 100" class="ikon">
             <circle cx="40" cy="36" r="14" />
             <path d="M14 82C14 64 26 56 40 56C54 56 66 64 66 82" />
@@ -113,7 +125,7 @@
             <path d="M10 50H86M60 24L88 50L60 76" />
           </svg>
         </a>
-        <a href="#priser" class="v3">
+        <a href="#priser" class="v3 reveal">
           <svg viewBox="0 0 100 100" class="ikon">
             <path d="M14 50L50 14H82V46L46 82Z" />
             <circle cx="66" cy="32" r="5" />
@@ -124,7 +136,7 @@
             <path d="M10 50H86M60 24L88 50L60 76" />
           </svg>
         </a>
-        <a href="#faq" class="v4">
+        <a href="#faq" class="v4 reveal">
           <svg viewBox="0 0 100 100" class="ikon">
             <circle cx="50" cy="50" r="34" />
             <path d="M40 40C40 30 60 30 60 42C60 52 50 52 50 62M50 72V74" />
@@ -136,7 +148,8 @@
           </svg>
         </a>
       </div>
-      <h2>Møt hjelperne</h2>
+
+      <h2 id="hjelpere" style="margin-top: 60px">Møt hjelperne</h2>
       <p class="under">
         Alle er unge og erfarne, og vet hvordan det er å stå fast. Velg den som
         passer best.
@@ -149,15 +162,15 @@
         <button data-sprak="java">Java</button>
       </div>
       <div class="hjelpere">
-        <article class="hjelper" data-sprak="python">
+        <article class="hjelper reveal" data-sprak="python">
           <div class="bilde a1">E</div>
           <h3>Emil, 19</h3>
           <p class="rolle">Python og feilsøking</p>
           <p>Elsker å lete etter feil og forklarer rolig, steg for steg.</p>
           <p class="tags"><span>Python</span><span>Feilsøking</span></p>
-          <button class="knapp liten" data-navn="Emil">Book Emil</button>
+          <a href="book.html?hjelper=Emil" class="knapp liten">Book Emil</a>
         </article>
-        <article class="hjelper" data-sprak="html css">
+        <article class="hjelper reveal" data-sprak="html css">
           <div class="bilde a2">S</div>
           <h3>Sara, 21</h3>
           <p class="rolle">Nettsider og design</p>
@@ -167,9 +180,9 @@
           <p class="tags">
             <span>HTML</span><span>CSS</span><span>Figma</span>
           </p>
-          <button class="knapp liten" data-navn="Sara">Book Sara</button>
+          <a href="book.html?hjelper=Sara" class="knapp liten">Book Sara</a>
         </article>
-        <article class="hjelper" data-sprak="javascript">
+        <article class="hjelper reveal" data-sprak="javascript">
           <div class="bilde a3">J</div>
           <h3>Jonas, 18</h3>
           <p class="rolle">JavaScript og spill</p>
@@ -177,9 +190,9 @@
             Har laget flere små spill og vet hvordan du får knapper til å funke.
           </p>
           <p class="tags"><span>JavaScript</span><span>Spill</span></p>
-          <button class="knapp liten" data-navn="Jonas">Book Jonas</button>
+          <a href="book.html?hjelper=Jonas" class="knapp liten">Book Jonas</a>
         </article>
-        <article class="hjelper" data-sprak="java">
+        <article class="hjelper reveal" data-sprak="java">
           <div class="bilde a4">M</div>
           <h3>Maja, 22</h3>
           <p class="rolle">Java og oppgaver</p>
@@ -187,10 +200,11 @@
             Studerer informatikk og er god på å forstå oppgaver du står fast på.
           </p>
           <p class="tags"><span>Java</span><span>Algoritmer</span></p>
-          <button class="knapp liten" data-navn="Maja">Book Maja</button>
+          <a href="book.html?hjelper=Maja" class="knapp liten">Book Maja</a>
         </article>
       </div>
     </section>
+
     <section class="wrap seksjon hjelpeblokk" id="hjelp">
       <div class="stor">
         <div>
@@ -223,96 +237,37 @@ console.log(sayHello('Utvikler'));</code></pre>
         </div>
       </div>
     </section>
-    <section id="slik" class="wrap seksjon">
-      <h2>Første gang? Slik fungerer det</h2>
-      <div class="trinn">
-        <div>
-          <b>1</b>
-          <h3>Velg en økt</h3>
-          <p>Feilsøking, kodegjennomgang eller hjelp med en oppgave.</p>
-        </div>
-        <div>
-          <b>2</b>
-          <h3>Velg en hjelper</h3>
-          <p>Finn noen som er god på akkurat det du sitter fast i.</p>
-        </div>
-        <div>
-          <b>3</b>
-          <h3>Få hjelp</h3>
-          <p>Dere tar det rolig, steg for steg, til feilen er borte.</p>
-        </div>
-      </div>
-    </section>
+
     <section id="priser" class="wrap seksjon">
       <h2>Priser</h2>
       <p class="under">Faste priser per økt på 30 minutter.</p>
       <div class="priser">
-        <div>
+        <div class="reveal">
           <h3>Feilsøking</h3>
           <p class="pris">99 kr</p>
           <p>Du har en feilmelding du ikke forstår.</p>
         </div>
-        <div class="populaer">
+        <div class="populaer reveal">
           <span class="badge">Mest valgt</span>
           <h3>Kodegjennomgang</h3>
           <p class="pris">129 kr</p>
           <p>Få tilbakemelding på koden din.</p>
         </div>
-        <div>
+        <div class="reveal">
           <h3>Hjelp med oppgave</h3>
           <p class="pris">149 kr</p>
           <p>Kom i gang med skoleoppgaven.</p>
         </div>
       </div>
     </section>
-    <section id="book" class="mork">
-      <div class="indre">
-        <h2>Book hjelp</h2>
-        <p class="under">Dette er en prototype, så ingenting blir sendt.</p>
-        <div class="bookboks">
-          <form id="skjema">
-            <label>Navn <input id="navn" type="text" /></label>
-            <label>E-post <input id="epost" type="text" /></label>
-            <label
-              >Hjelper
-              <select id="hjelper">
-                <option>Hvem som helst</option>
-                <option>Emil</option>
-                <option>Sara</option>
-                <option>Jonas</option>
-                <option>Maja</option>
-              </select>
-            </label>
-            <label
-              >Økt
-              <select id="okt">
-                <option value="99">Feilsøking – 99 kr</option>
-                <option value="129">Kodegjennomgang – 129 kr</option>
-                <option value="149">Hjelp med oppgave – 149 kr</option>
-              </select>
-            </label>
-            <label>Dato <input id="dato" type="date" /></label>
-            <p id="feil" class="feil"></p>
-            <button class="knapp" type="submit">Send forespørsel</button>
-          </form>
-          <div class="sammendrag">
-            <h3>Din booking</h3>
-            <p class="linje" id="sumHjelper"></p>
-            <p class="linje" id="sumOkt"></p>
-            <p class="linje" id="sumDato"></p>
-            <p id="sumPris" class="storpris"></p>
-          </div>
-        </div>
-        <div id="takk" class="takk" hidden></div>
-      </div>
-    </section>
+
     <section id="guider" class="wrap seksjon">
       <h2>Tips og guider</h2>
       <p class="under">
         Små tips fra hjelperne som gjør det lettere å komme videre.
       </p>
       <div class="artikler">
-        <article>
+        <article class="reveal">
           <img src="bilder/program4.jpg" alt="" />
           <div>
             <span class="tag">Tips</span>
@@ -320,7 +275,7 @@ console.log(sayHello('Utvikler'));</code></pre>
             <p>12. okt 2026 · 5 min</p>
           </div>
         </article>
-        <article>
+        <article class="reveal">
           <img src="bilder/program1.jpg" alt="" />
           <div>
             <span class="tag">Guide</span>
@@ -328,7 +283,7 @@ console.log(sayHello('Utvikler'));</code></pre>
             <p>10. okt 2026 · 7 min</p>
           </div>
         </article>
-        <article>
+        <article class="reveal">
           <img src="bilder/program2.jpg" alt="" />
           <div>
             <span class="tag">Tutorial</span>
@@ -336,7 +291,7 @@ console.log(sayHello('Utvikler'));</code></pre>
             <p>8. okt 2026 · 8 min</p>
           </div>
         </article>
-        <article>
+        <article class="reveal">
           <img src="bilder/program3.jpg" alt="" />
           <div>
             <span class="tag">Inspirasjon</span>
@@ -346,6 +301,7 @@ console.log(sayHello('Utvikler'));</code></pre>
         </article>
       </div>
     </section>
+
     <section id="faq" class="wrap seksjon">
       <h2>Spørsmål og svar</h2>
       <div class="faq">
@@ -370,6 +326,7 @@ console.log(sayHello('Utvikler'));</code></pre>
         </div>
       </div>
     </section>
+
     <section class="wrap seksjon">
       <div class="cta">
         <svg viewBox="0 0 100 100" class="ctaikon">
@@ -381,7 +338,7 @@ console.log(sayHello('Utvikler'));</code></pre>
             Book en økt og få hjelp av noen som forstår hvordan det er å stå
             fast.
           </p>
-          <a href="#book" class="knapp lys">Book hjelp →</a>
+          <a href="book.html" class="knapp lys">Book hjelp →</a>
         </div>
         <p class="notat2">Små steg.<br />Stor fremgang.</p>
       </div>
@@ -394,13 +351,14 @@ console.log(sayHello('Utvikler'));</code></pre>
           <p>Fast i koden? Få hjelp i dag.</p>
         </div>
         <div class="fotlenker">
-          <a href="#hjem">Hjem</a><a href="#hjelpere">Hjelperne</a
-          ><a href="#slik">Slik fungerer det</a><a href="#priser">Priser</a
-          ><a href="#book">Book hjelp</a>
+          <a href="index.html">Hjem</a>
+          <a href="#hjelpere">Hjelperne</a>
+          <a href="book.html">Book hjelp</a>
         </div>
       </div>
       <p class="wrap skole">© 2026 Kodebua · Skoleprosjekt</p>
     </footer>
+
     <button id="chatKnapp" class="chatKnapp" aria-label="Åpne chat">
       <svg
         viewBox="0 0 100 100"
@@ -418,6 +376,7 @@ console.log(sayHello('Utvikler'));</code></pre>
       </svg>
       Chat med Kodebot
     </button>
+
     <div id="chatVindu" class="chatVindu" hidden>
       <div class="chatTopp">
         <div class="chatAvatar">
@@ -455,6 +414,10 @@ console.log(sayHello('Utvikler'));</code></pre>
         <button>Hvordan booker jeg?</button>
         <button>Hvem er hjelperne?</button>
         <button>Er det trygt?</button>
+        <button>Hvordan lager jeg en knapp?</button>
+        <button>Hva er JavaScript?</button>
+        <button>Python feil</button>
+        <button>HTML og CSS</button>
       </div>
       <form id="chatSkjema" class="chatSkjema">
         <input
@@ -479,6 +442,7 @@ console.log(sayHello('Utvikler'));</code></pre>
         </button>
       </form>
     </div>
+
     <script src="api.js"></script>
     <script src="app.js"></script>
   </body>
