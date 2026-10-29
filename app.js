@@ -1,12 +1,3 @@
-const OPENAI_API_KEY =
-  "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";
-
-var okter = {
-  99: "Feilsøking",
-  129: "Kodegjennomgang",
-  149: "Hjelp med oppgave",
-};
-
 var menyKnapp = document.getElementById("menyKnapp");
 var meny = document.getElementById("meny");
 
@@ -39,7 +30,7 @@ for (var i = 0; i < filterKnapper.length; i++) {
 var tipsListe = [
   "// En enkel funksjon som sier hei\nfunction sayHello(name) {\n  return 'Hei, ' + name + '!';\n}\nconsole.log(sayHello('Utvikler'));",
   "# Skriv ut tallene fra 1 til 3\nfor tall in range(1, 4):\n    print(tall)",
-  "/* Gjør en knapp rund med CSS */\nbutton {\n  padding: 12px 24px;\n  border-radius: 999px;\n}",
+  "/* Gjor en knapp rund med CSS */\nbutton {\n  padding: 12px 24px;\n  border-radius: 999px;\n}",
 ];
 var tipsNr = 0;
 var nyttTips = document.getElementById("nyttTips");
@@ -51,6 +42,12 @@ if (nyttTips && tipsKode) {
     tipsKode.textContent = tipsListe[tipsNr];
   };
 }
+
+var okter = {
+  99: "Feilsoking",
+  129: "Kodegjennomgang",
+  149: "Hjelp med oppgave",
+};
 
 var skjema = document.getElementById("skjema");
 var hjelperValg = document.getElementById("hjelper");
@@ -69,7 +66,7 @@ if (skjema && hjelperValg && oktValg && dato) {
     var sumDato = document.getElementById("sumDato");
     var sumPris = document.getElementById("sumPris");
     if (sumHjelper) sumHjelper.textContent = "Hjelper: " + hjelperValg.value;
-    if (sumOkt) sumOkt.textContent = okter[oktValg.value] || "Velg en økt";
+    if (sumOkt) sumOkt.textContent = okter[oktValg.value] || "Velg en okt";
     if (sumDato) sumDato.textContent = "Dato: " + dato.value;
     if (sumPris) sumPris.textContent = oktValg.value + " kr";
   }
@@ -98,7 +95,7 @@ if (skjema && hjelperValg && oktValg && dato) {
     var epost = epostEl ? epostEl.value.trim() : "";
 
     if (navn.length < 2) {
-      feil.textContent = "Du må skrive inn navnet ditt.";
+      feil.textContent = "Du ma skrive inn navnet ditt.";
       return;
     }
     if (epost.indexOf("@") === -1 || epost.indexOf(".") === -1) {
@@ -116,7 +113,7 @@ if (skjema && hjelperValg && oktValg && dato) {
       "Takk, " +
       navn +
       "! Du har booket " +
-      (okter[oktValg.value] || "en økt") +
+      (okter[oktValg.value] || "en okt") +
       " med " +
       hjelperValg.value.toLowerCase() +
       " " +
@@ -165,12 +162,18 @@ function visSkriver() {
   return skriver;
 }
 
+function fjernSkriver(skriver) {
+  if (skriver && skriver.parentNode) {
+    skriver.parentNode.removeChild(skriver);
+  }
+}
+
 function byttChat() {
   if (!chatVindu) return;
   chatVindu.hidden = !chatVindu.hidden;
   if (!chatVindu.hidden) {
     if (chatMeldinger && chatMeldinger.children.length === 0) {
-      leggTil("Hei! Jeg er Kodebot. Hva lurer du på?", "bot");
+      leggTil("Hei! Jeg er Kodebot. Hva lurer du pa?", "bot");
     }
     if (chatInput) chatInput.focus();
   }
@@ -196,41 +199,13 @@ async function spor(tekst) {
   var skriver = visSkriver();
 
   try {
-    var response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + OPENAI_API_KEY,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content:
-              "Du er Kodebot, en vennlig IT-hjelper for folk uten teknisk bakgrunn. Svar kort, enkelt og steg-for-steg på norsk. Aldri be om passord eller BankID. Hvis du er usikker, si det.",
-          },
-          { role: "user", content: tekst },
-        ],
-        temperature: 0.7,
-        max_tokens: 300,
-      }),
-    });
-
-    var data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data.error?.message || "Kunne ikke hente svar fra OpenAI.",
-      );
-    }
-
-    if (skriver.parentNode) skriver.parentNode.removeChild(skriver);
-    leggTil(data.choices[0].message.content, "bot");
+    var svar = await sporBot(tekst);
+    fjernSkriver(skriver);
+    leggTil(svar, "bot");
   } catch (error) {
-    if (skriver.parentNode) skriver.parentNode.removeChild(skriver);
+    fjernSkriver(skriver);
     leggTil(
-      "Jeg får ikke kontakt med chatboten akkurat nå. Sjekk at API-nøkkelen er riktig.",
+      "Jeg far ikke kontakt med chatboten akkurat na. Sjekk at API-nokkelen er riktig.",
       "bot",
     );
     console.error("Kodebot-feil:", error);
@@ -247,9 +222,36 @@ if (chatSkjema) {
   };
 }
 
+var forslagListe = [
+  "Hvordan lager jeg en knapp i HTML?",
+  "Hva er forskjellen pa var og let?",
+  "Hvordan far jeg en nettside pa internett?",
+  "Hva er en API?",
+  "Hvordan loser jeg en feilmelding i Python?",
+  "Hva er Git og GitHub?",
+  "Hvordan far jeg en div midt pa siden?",
+  "Hva er forskjellen pa HTML og CSS?",
+  "Hvordan skriver jeg en for-lokke i JavaScript?",
+  "Hva er en funksjon?",
+  "Hva betyr det at noe er asynkront?",
+  "Hvordan lager jeg en skjema i HTML?",
+];
+
+var forslagBeholder = document.querySelector(".chatForslag");
+if (forslagBeholder) {
+  if (forslagBeholder.children.length === 0) {
+    for (var f = 0; f < forslagListe.length; f++) {
+      var knapp = document.createElement("button");
+      knapp.type = "button";
+      knapp.textContent = forslagListe[f];
+      forslagBeholder.appendChild(knapp);
+    }
+  }
+}
+
 var forslag = document.querySelectorAll(".chatForslag button");
-for (var f = 0; f < forslag.length; f++) {
-  forslag[f].onclick = function () {
+for (var f2 = 0; f2 < forslag.length; f2++) {
+  forslag[f2].onclick = function () {
     spor(this.textContent.trim());
   };
 }
@@ -257,7 +259,7 @@ for (var f = 0; f < forslag.length; f++) {
 var sokInput = document.getElementById("sokInput");
 var sokSkjema = document.getElementById("sokSkjema");
 
-function aapneChat(sporsmal) {
+function aapneChatMedSporsmal(sporsmal) {
   if (chatVindu && chatVindu.hidden) byttChat();
   spor(sporsmal);
 }
@@ -271,6 +273,6 @@ if (sokSkjema && sokInput) {
       return;
     }
     sokInput.value = "";
-    aapneChat(tekst);
+    aapneChatMedSporsmal(tekst);
   };
 }
